@@ -1,3 +1,16 @@
 import axios from "axios";
 
-axios.defaults.headers.common["x-api-key"] = "live_n1s7YtWElldkVXS9keSKQYZWhS34TNr45yJqh0E7gf9C9Nv0bvhGcHmFsOwjx9F3";
+axios.defaults.headers.common["x-api-key"] = "api_key";
+const url = `https://api.thecatapi.com/v1/breeds`;
+const api_key = "live_n1s7YtWElldkVXS9keSKQYZWhS34TNr45yJqh0E7gf9C9Nv0bvhGcHmFsOwjx9F3"
+
+fetch(url,{headers: {
+      'x-api-key': api_key
+    }})
+ .then((response) => {
+   return response.json();
+ })
+ .then((data) => {
+   
+   //filter to only include those with an `image` object
+     console.log(data)})
