@@ -23,8 +23,7 @@ fetchBreeds()
         select: pageSelect,
         data: arr
     });
-}).catch(onFetchError);
-console.log(arr)
+}).catch(() => Report.failure('Oops! Something went wrong!'));
     
 
 function getCatByBreed(event) {
@@ -32,13 +31,13 @@ function getCatByBreed(event) {
     loader.classList.remove('is-hidden')
     catInfoBox.classList.remove('is-hidden');
     const selectedCatName = event.target.value;
-   console.log(selectedCatName)
+  
     fetchBreeds().then(data => {
         
         const selectedCat = data.find(cat => {
             return cat.id === selectedCatName;
         });
-        console.log(data)
+      
         const catInfo = `
       <img src="${selectedCat.image.url}" alt="${selectedCat.name}" width="300" >
       <div class="text-box">
@@ -57,17 +56,3 @@ function getCatByBreed(event) {
 
     
 }
-
-
-
-
-
-
-
-
-
-function onFetchError(error) {
-    
-};
-
-   
