@@ -1,0 +1,61 @@
+.is-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.breed-select {
+    display: none;
+    max-width: 250px;
+    margin: 20px;
+}
+
+.cat-info {
+    display: flex;
+    gap: 30px;
+}
+
+.text-box {
+    width: 400px;
+    align-self: flex-end;
+}
+
+img {
+    align-self: flex-end;
+}
+
+.loader {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.loader-round {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    border: 6px solid;
+    border-color: rgba(90, 77, 77, 0.15) rgba(226, 46, 46, 0.25) rgba(90, 77, 77, 0.15) rgba(226, 46, 46, 0.25);
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
