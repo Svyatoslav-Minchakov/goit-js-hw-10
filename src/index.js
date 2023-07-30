@@ -4,14 +4,9 @@ import { Report } from 'notiflix/build/notiflix-report-aio';
 import SlimSelect from 'slim-select'
 import 'slim-select/dist/slimselect.css';
 
-
-
 const pageSelect = document.querySelector('.breed-select');
 const catInfoBox = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader');
-
-pageSelect.addEventListener('change', getCatByBreed);
-
 
 let arr = [];
 fetchBreeds()
@@ -23,15 +18,16 @@ fetchBreeds()
         select: pageSelect,
         data: arr
     });
+  
+  pageSelect.addEventListener('change', getCatByBreed);
+
 }).catch(() => Report.failure('Oops! Something went wrong!'));
-    
+
 
 function getCatByBreed(event) {
-    event.preventDefault()
-    loader.classList.remove('is-hidden')
-    catInfoBox.classList.remove('is-hidden');
+  event.preventDefault()
+  catInfoBox.classList.remove('is-hidden');
     const selectedCatName = event.target.value;
-  
     fetchBreeds().then(data => {
         
         const selectedCat = data.find(cat => {
@@ -54,5 +50,4 @@ function getCatByBreed(event) {
         catInfoBox.classList.add('is-hidden');
     })
 
-    
 }
